@@ -7,6 +7,6 @@ public class Main {
         System.out.println("Number");
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
-        System.out.println("a " + num);
+        System.out.println("Number is " + num);
     }
 }
