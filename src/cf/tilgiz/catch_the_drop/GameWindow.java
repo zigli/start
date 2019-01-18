@@ -29,8 +29,8 @@ public class GameWindow extends JFrame {
         game_window.setSize(906,478);
         game_window.setResizable(false);
         last_frame_time = System.nanoTime();
-        GameField gameField = new GameField();
-        gameField.addMouseListener(new MouseAdapter() {
+        GameField game_field = new GameField();
+        game_field.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 int x = e.getX();
@@ -38,12 +38,14 @@ public class GameWindow extends JFrame {
                 float drop_right = drop_left + drop.getWidth(null);
                 float drop_bottom = drop_top + drop.getHeight(null);
                 boolean is_drop = x >= drop_left && x <= drop_right && y >= drop_top && y <= drop_bottom;
-                if(is_drop){
+                if(is_drop) {
                     drop_top = -100;
-                    drop_left = Math.ra
+                    drop_left = (int) (Math.random() * (game_field.getWidth() - drop.getWidth(null)));
+                    drop_v = drop_v + 20;
+                }
             }
         });
-        game_window.add(gameField);
+        game_window.add(game_field);
         game_window.setVisible(true);
 
     }
